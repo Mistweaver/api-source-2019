@@ -1,0 +1,37 @@
+---
+spring:
+  profiles: default
+
+
+  main:
+    allow-bean-definition-overriding: true
+  output:
+    ansi:
+      enabled: ALWAYS
+
+logging.level.org.springframework.web: INFO
+logging.file.name: /var/log/api.log
+
+spring.data.mongodb.auto-index-creation: true
+
+server.port: 8081
+
+#spring.data.mongodb.databse: your database here
+#spring.data.mongodb.uri: your mongo uri here
+
+## MULTIPART (MultipartProperties)
+# Enable multipart uploads
+#spring.http.multipart.enabled: true # Spring Boot 1.3.x - pre 2.0
+spring.servlet.multipart.enabled: true
+# Threshold after which files are written to disk.
+#spring.http.multipart.file-size-threshold: 10KB # Spring Boot 1.3.x - pre 2.0
+spring.servlet.multipart.file-size-threshold: 10KB
+# Max file size. Note: Needs to be double the actual file size in bytes on disk.
+#spring.http.multipart.max-file-size: 3000MB # Spring Boot 1.3.x - pre 2.0
+spring.servlet.multipart.max-file-size: 200MB
+# Max Request Size
+#spring.http.multipart.max-request-size: 3150MB # Spring Boot 1.3.x - pre 2.0
+spring.servlet.multipart.max-request-size: 200MB
+
+
+filestore.directory: ./uploads
